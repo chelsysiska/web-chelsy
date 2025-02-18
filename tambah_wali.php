@@ -1,11 +1,10 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
 include 'koneksi.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $nama_wali = mysqli_real_escape_string($koneki, $_POST['nama_wali']);
-    $kontak = mysqli_real_escape_string($koneki, $_POST['kontak']);
+    // Perbaiki penamaan variabel dari $koneki menjadi $koneksi
+    $nama_wali = mysqli_real_escape_string($koneksi, $_POST['nama_wali']);
+    $kontak = mysqli_real_escape_string($koneksi, $_POST['kontak']);
 
     $query = "INSERT INTO wali_murid (nama_wali, kontak) VALUES ('$nama_wali', '$kontak')";
     if (mysqli_query($koneksi, $query)) {

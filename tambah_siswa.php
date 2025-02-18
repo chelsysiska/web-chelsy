@@ -78,7 +78,7 @@ $result_wali = mysqli_query($koneksi, $query_wali);
             </div>
             <div class="mb-3">
                 <label for="id_wali" class="form-label">Wali Murid</label>
-                <select class="form-select" id="id_wali" name="id_wali" required >
+                <select class="form-select" id="id_wali" name="id_wali" required>
                     <option value="">Pilih Wali Murid</option>
                     <?php while ($row_wali = mysqli_fetch_assoc($result_wali)) : ?>
                         <option value="<?php echo $row_wali['id_wali']; ?>"><?php echo $row_wali['nama_wali']; ?></option>
