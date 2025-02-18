@@ -25,7 +25,7 @@ $result = mysqli_query($koneksi, $query);
                 <input type="text" name="search" class="form-control me-2" placeholder="Cari wali murid..." value="">
                 <button type="submit" class="btn btn-success">Cari</button>
             </form>
-            <a href="tambah_kelas.php" class="btn btn-success">Tambah Wali Murid</a>
+            <a href="tambah_wali.php" class="btn btn-success">Tambah Wali Murid</a>
         </div>
         <table class="table table-bordered">
             <thead class="table-dark">
@@ -41,8 +41,8 @@ $result = mysqli_query($koneksi, $query);
                     <td><?php echo $row['nama_wali']; ?></td>
                     <td><?php echo $row['kontak']; ?></td>
                     <td>
-                        <a href="edit_kelas.php?id=<?php echo $row['id_wali']; ?>" class="btn btn-warning btn-sm">Edit</a>
-                        <a href="hapus_kelas.php?id=<?php echo $row['id_siswa']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus?')">Hapus</a>
+                        <a href="edit_wali.php?id=<?php echo $row['id_wali']; ?>" class="btn btn-warning btn-sm">Edit</a>
+                        <a href="hapus_wali.php?id=<?php echo $row['id_wali']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus?')">Hapus</a>
                     </td>
                 </tr>
                 <?php endwhile; ?>
