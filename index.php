@@ -4,7 +4,7 @@ include 'koneksi.php';
 // Ambil data siswa
 $query = "SELECT siswa.*, kelas.nama_kelas, wali_murid.nama_wali FROM siswa 
             LEFT JOIN kelas ON siswa.id_kelas = kelas.id_kelas
-            LEFT JOIN wali_murid ON siswa.id_siswa = wali_murid.id_wali";
+            LEFT JOIN wali_murid ON siswa.id_wali = wali_murid.id_wali";
 
 $result = mysqli_query($koneksi, $query);
 
