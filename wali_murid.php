@@ -2,10 +2,10 @@
 include 'koneksi.php';
 
 // Ambil data kelas
-$query = "SELECT * FROM wali_murid ";
+$search = isset($_GET['search']) ? $_GET['search'] : '';
+$query = "SELECT * FROM wali_murid WHERE nama_wali LIKE '%$search%'";
 
 $result = mysqli_query($koneksi, $query);
-
 ?>
 
 <!DOCTYPE html>
@@ -22,8 +22,9 @@ $result = mysqli_query($koneksi, $query);
         <div class="d-flex justify-content-between mb-3">
             <a href="index.php" class="btn btn-primary">Kembali ke Data Siswa</a>
             <form method="GET" class="d-flex">
-                <input type="text" name="search" class="form-control me-2" placeholder="Cari wali murid..." value="">
+                <input type="text" name="search" class="form-control me-2" placeholder="Cari wali murid..." value="<?php echo htmlspecialchars($search); ?>">
                 <button type="submit" class="btn btn-success">Cari</button>
+                <a href="wali_murid.php" class="btn btn-secondary ms-2">Reset</a> <!-- Tombol Reset -->
             </form>
             <a href="tambah_wali.php" class="btn btn-success">Tambah Wali Murid</a>
         </div>
@@ -38,8 +39,8 @@ $result = mysqli_query($koneksi, $query);
             <tbody>
                 <?php while($row = mysqli_fetch_assoc($result)) : ?>
                 <tr>
-                    <td><?php echo $row['nama_wali']; ?></td>
-                    <td><?php echo $row['kontak']; ?></td>
+                    <td><?php echo htmlspecialchars($row['nama_wali']); ?></td>
+                    <td><?php echo htmlspecialchars($row['kontak']); ?></td>
                     <td>
                         <a href="edit_wali.php?id=<?php echo $row['id_wali']; ?>" class="btn btn-warning btn-sm">Edit</a>
                         <a href="hapus_wali.php?id=<?php echo $row['id_wali']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus?')">Hapus</a>
@@ -52,5 +53,3 @@ $result = mysqli_query($koneksi, $query);
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-
-

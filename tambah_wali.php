@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <input type="text" name="kontak" class="form-control" required>
             </div>
             <button type="submit" class="btn btn-primary">Simpan</button>
-            <a href="data_wali.php" class="btn btn-secondary">Kembali</a>
+            <a href="wali_murid.php" class="btn btn-secondary">Kembali</a>
         </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
